@@ -1,0 +1,129 @@
+.authcontainer {
+    width: 350px;
+}
+
+label.app-title {
+    color: #ABB6C9;
+    font-family: "Inter SemiBold", sans-serif !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+small.sub-title {
+    display: flex;
+    justify-content: center;
+    color: #35B68F;
+    font-family: "Poppins Regular", sans-serif;
+    font-size: 71%;
+}
+
+.action-container a.forgot-password,
+.action-container span {
+    color: #D6DEEC;
+    font-family: "Roboto Regular", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.action-container a.signup {
+    color: #33DB9A;
+    font-family: "Roboto Bold", sans-serif;
+    text-decoration: none;
+}
+
+.form-control {
+    background-color: #CEE0D6 !important;
+    padding: 0 15px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #9CC3B4;
+    color: #228389;
+    font-family: "Inter SemiBold", sans-serif;
+    font-size: 1.2rem;
+}
+
+.auth--formlabel {
+    display: block;
+    text-align: left;
+    color: #D6DEEC;
+    font-family: "Inter Regular", sans-serif !important;
+    font-weight: 500;
+    font-size: 90%;
+}
+
+.auth--container {
+    background-color: #252A2A;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+@media (max-width: 320px) {
+    .authcontainer {
+        width: 320px !important;
+        padding: 1rem 0;
+    }
+}
+
+@media only screen and (min-device-width: 321px) and (max-device-width: 375px) {
+    .authcontainer {
+        width: 375px !important;
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .authcontainer {
+        width: 400px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .authcontainer {
+        width: 500px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+.hidepassword,
+.showpassword {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+}
+
+.hidepassword {
+    display: none;
+    background: url(../../../../../../assets/image/auth/eye-solid.svg) center center no-repeat;
+    background-repeat: no-repeat;
+    float: right;
+    height: 100%;
+    margin-top: 0px;
+    padding: 5px;
+    width: 30px;
+    background-position: center;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border: none;
+    margin-right: 10px;
+}
+
+.showpassword {
+    background: url(../../../../../../assets/image/auth/eye-slash-solid.svg) center center no-repeat;
+    background-repeat: no-repeat;
+    float: right;
+    height: 100%;
+    margin-top: 0px;
+    padding: 5px;
+    width: 30px;
+    background-position: center;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border: none;
+    margin-right: 10px;
+}

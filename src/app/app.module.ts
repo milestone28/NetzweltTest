@@ -9,6 +9,9 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthenticationRoutingModule } from './components/pages/authentication/authentication-routing.module';
+import { AuthenticationModule } from './components/pages/authentication/authentication.module';
+import { HomepageComponent } from './components/pages/homepage/homepage/homepage.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -17,14 +20,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthenticationModule,
     PerfectScrollbarModule, 
     NgxSpinnerModule,
     ToastrModule.forRoot(),
+    AuthenticationRoutingModule,
   ],
   providers: [
     {

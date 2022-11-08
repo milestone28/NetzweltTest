@@ -1,1 +1,48 @@
-<p>login works!</p>
+<div class="auth--container">
+    <div class="container authcontainer h-100">
+        <div class="row h-75 justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="logo-container mb-2"></div>
+                <form [formGroup]="loginForm" class="container text-center" (ngSubmit)="onSubmit()">
+                    <div class="input-container">
+                        <label class="app-title text-center mb-3">Account Login</label>
+                        <div class="mb-4">
+                            <label class="auth--formlabel mb-2">Username</label>
+                            <input type="text" [ngClass]="{ 'is-invalid': submitted && log.Username.errors }" class="form-control" formControlName="Username">
+                            <div *ngIf="submitted && log.Username.errors" class="invalid-feedback">
+                                <div *ngIf="submitted && log.Username.errors">
+                                    <div class="error-message text-start" *ngIf="log.Username.errors.required">Username is required</div>
+                                </div>
+                                <div class="text-start" *ngIf="log.Username.errors.pattern">
+                                    Invalid format
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="auth--formlabel mb-2">Password</label>
+
+                            <div class="position-relative">
+                                <input type="password" id="password" [ngClass]="{ 'is-invalid': submitted && log.Password.errors }" class="form-control" formControlName="Password">
+                                <div class="hidepassword" (click)="hidepassword()"></div>
+                                <div class="showpassword" (click)="showpassword()"></div>
+                            </div>
+
+                            <div *ngIf="submitted && log.Password.errors" class="invalid-feedback">
+                                <div *ngIf="submitted && log.Password.errors">
+                                    <div class="error-message text-start" *ngIf="log.Password.errors.required">Password is required</div>
+                                </div>
+                                <div class="text-start" *ngIf="log.Password.errors.pattern">
+                                    Invalid format
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn--login mt-5" type="submit">
+                <span>Login</span>
+                </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

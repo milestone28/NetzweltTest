@@ -23,7 +23,7 @@ export class AuthenticationService extends BaseService{
     ) { 
       super();
       this.currentUserSubject = new BehaviorSubject<Loginuserdetails>(
-        JSON.parse(localStorage.getItem("currentUser") || '{}')
+        JSON.parse(localStorage.getItem("currentUser"))
     );
     this.currentUser = this.currentUserSubject.asObservable();
     }

@@ -33,7 +33,8 @@
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",
-                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+                            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+                            "src/myjs.js"
                         ]
                     },
                     "configurations": {
@@ -70,10 +71,12 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "NetzweltExam:build:production"
+                            "browserTarget": "NetzweltExam:build:production",
+                            "proxyConfig": "proxy.conf.json"
                         },
                         "development": {
-                            "browserTarget": "NetzweltExam:build:development"
+                            "browserTarget": "NetzweltExam:build:development",
+                            "proxyConfig": "proxy.conf.json"
                         }
                     },
                     "defaultConfiguration": "development"

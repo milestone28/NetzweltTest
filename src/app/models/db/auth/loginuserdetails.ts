@@ -3,7 +3,7 @@ export class Loginuserdetails {
     constructor (
         username: string,
         displayName: string,
-        roles: string,
+        roles = [],
     ) {
         this.username = username;
         this.displayName = displayName;
@@ -12,5 +12,5 @@ export class Loginuserdetails {
 
     username: string;
     displayName: string;
-    roles: string;
+    roles = [];
 }

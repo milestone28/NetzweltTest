@@ -4,13 +4,10 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
-import { LoginUserRequest } from 'src/app/models/requests/auth/login-user-request';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
-// import { UserService } from 'src/app/_services/user.service';
-// import { ErrorMessage } from 'src/app/_utilities/error-message';
  import { Helper } from 'src/app/_utilities/helper';
-// import { ReturnCode } from 'src/app/_utilities/return-code';
 import * as $ from "jquery";
+import { LoginUserRequest } from 'src/app/models/requests/auth/login-user-request';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +25,7 @@ export class LoginComponent implements OnInit {
     private _fb: FormBuilder,
     private _toastr: ToastrService,
     private _authenticationService: AuthenticationService,
-    //private _userService: UserService,
+    private router: Router,
     private _spinner: NgxSpinnerService,
     private _router: Router
   ) {
@@ -89,39 +86,32 @@ export class LoginComponent implements OnInit {
         this.loginForm.get("Password").value
       );
      this.postLogin(addRequest);
-     console.log(addRequest);
     }
   }
 
   postLogin(request: any) {
-    // this._authenticationService
-    //   .postLogin(request)
-    //   .pipe(first())
-    //   .subscribe(
-    //     (result) => {
-
-    //       if (result.result_code == ReturnCode.zero) {
-    //        // this._toastr.success(result.result_msg);
-    //         // this.messagingService.requestPermission();
-    //         // this.messagingService.receiveMessage();
-    //         // this.message = this.messagingService.currentMessage
-
-    //       } else {
-    //         if (result.result_msg == ErrorMessage.ErrorAuthHeader) {
-    //           this._toastr.error(ErrorMessage.ErrorInvalidCredentials);
-    //         } else {
-    //           this._toastr.error(result.result_msg);
-    //         }
-    //         this._spinner.hide();
-    //       }
-    //     },
-    //     (error) => {
-    //       this._toastr.error(ErrorMessage.ErrorSomethingWent);
-    //     },
-    //     () => {
-    //      this._spinner.hide();
-    //     }
-    //   );
+    this._authenticationService
+      .postLogin(request)
+      .pipe(first())
+      .subscribe(
+        (result) => {
+         console.log(result.body);
+          if (result.status === 200) {
+            this._toastr.success('Welcome ' + result.body.username);
+            this.router.navigate(['/']);
+          } 
+          else {
+            this._spinner.hide();
+          }
+        },
+        (error) => {
+         this._toastr.error(error.error.message);
+         this._spinner.hide();
+        },
+        () => {
+         this._spinner.hide();
+        }
+      );
   }
 
 

@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://netzwelt-devtest.azurewebsites.net",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

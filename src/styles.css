@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn--login {
+    display: block;
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #46A06A;
+    line-height: 2;
+}
+
+.btn--login span {
+    color: #FFF;
+    font-family: "Inter Regular", sans-serif !important;
+    font-size: 1rem;
+    font-weight: 500;
+}

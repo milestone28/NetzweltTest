@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs/operators';
 import { Territory } from 'src/app/models/db/territories/territories';
@@ -21,7 +22,7 @@ export class HomepageComponent implements OnInit {
   constructor(
     private _territoriesSerive: TerritoriesService,
     private _toastr: ToastrService,
-    private elRef: ElementRef
+    private _router : Router
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +32,13 @@ export class HomepageComponent implements OnInit {
   myFunction() {
     myFunctionJS();
   }
+
+    logout() {
+      localStorage.removeItem('currentUser');
+      this._router.navigate(['login']);
+      location.reload();
+    }
+  
 
   getTerritories() {
     this._territoriesSerive
@@ -59,7 +67,7 @@ export class HomepageComponent implements OnInit {
 
                     if (!rootTerritory.children) 
                       rootTerritory.children = [];
-                      
+
                     rootTerritory.children.push({
                       id: territory.id,
                       name: territory.name,

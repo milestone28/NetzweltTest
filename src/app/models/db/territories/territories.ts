@@ -1,6 +1,6 @@
-export class Data {
-  id : string;
-  name : string;
-  parent : string;
+export class Territory {
+  id: string;
+  name: string;
+  parent: string | null;
+  children?: Territory[];
 }
-

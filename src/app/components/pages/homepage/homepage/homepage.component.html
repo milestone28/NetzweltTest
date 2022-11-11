@@ -2,15 +2,15 @@
     <h2>Territories</h2>
     <p>Here are the list of territories</p>
 
-    <ul id="myUL" *ngFor="let item of parentList">
+    <ul id="myUL" *ngFor="let item of territories">
         <li>
-            <span class="caret" (click)="myFunction()">{{item.data.parent}}</span>
+            <span class="caret" (click)="myFunction()">{{item.name}}</span>
             <ul class="nested">
-                <li *ngFor="let child1 of item.data.child.child1">
-                    <span class="caret" (click)="myFunction()">{{child1}}</span>
+                <li *ngFor="let item of item.children">
+                    <span class="caret" (click)="myFunction()">{{item.name}}</span>
                     <ul class="nested">
-                        <li *ngFor="let child2 of item.data.child.child.child2">
-                            <span class="caret">{{child2}}</span>
+                        <li *ngFor="let item of item.children">
+                            <span class="caret">{{item.name}}</span>
                         </li>
                     </ul>
                 </li>
